@@ -12,24 +12,24 @@
     <select id="get" resultType="Param">
         SELECT
         <include refid="defaultColumns"/>
-        FROM param a
+        FROM sys_param a
         WHERE a.code = #{code}
     </select>
 
     <select id="findAll" resultType="Param">
         SELECT
         <include refid="defaultColumns"/>
-        FROM param a
+        FROM sys_param a
     </select>
 
     <select id="findList" resultType="Param">
         SELECT
         <include refid="defaultColumns"/>
-        FROM param a
+        FROM sys_param a
     </select>
 
     <insert id="save">
-        INSERT INTO param(
+        INSERT INTO sys_param(
 			id,
 			code,
 			value,
@@ -47,7 +47,7 @@
     </insert>
 
     <update id="update">
-        UPDATE param SET
+        UPDATE sys_param SET
 			code = #{code},
 			value = #{value},
 			type = #{type},
@@ -58,7 +58,7 @@
 
     <!--物理删除-->
     <update id="del">
-        DELETE FROM param
+        DELETE FROM sys_param
 		WHERE id = #{id}
     </update>
 </mapper>

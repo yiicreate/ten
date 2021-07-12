@@ -10,25 +10,25 @@
     <select id="findAll" resultType="com.bate.admin.entity.User">
         SELECT
         <include refid="userColumns"/>
-        FROM user
+        FROM sys_user
     </select>
 
     <select id="findList" resultType="com.bate.admin.entity.User">
         SELECT
         <include refid="userColumns"/>
-        FROM user WHERE  id = #{id}
+        FROM sys_user WHERE  id = #{id}
     </select>
 
     <select id="getByName" resultType="com.bate.admin.entity.User">
-        SELECT * FROM user WHERE  user_name = #{userName}
+        SELECT * FROM sys_user WHERE  user_name = #{userName}
     </select>
 
     <select id="getByToken" resultType="com.bate.admin.entity.User">
-        SELECT * FROM user WHERE  token = #{token}
+        SELECT * FROM sys_user WHERE  token = #{token}
     </select>
 
     <insert id="save">
-        INSERT INTO user(
+        INSERT INTO sys_user(
 			id,
 			user_name,
 			password,
@@ -52,7 +52,7 @@
 
     <!-- 更新用户token -->
     <update id="updateTokenById">
-		UPDATE user SET
+		UPDATE sys_user SET
 			token = #{token}
 		WHERE id = #{id}
 	</update>

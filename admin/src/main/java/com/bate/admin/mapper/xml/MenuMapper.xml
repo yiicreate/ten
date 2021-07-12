@@ -19,24 +19,24 @@
     <select id="get" resultType="Menu">
         SELECT
         <include refid="defaultColumns"/>
-        FROM menu
+        FROM sys_menu
         WHERE id = #{id}
     </select>
 
     <select id="findAll" resultType="Menu">
         SELECT
         <include refid="defaultColumns"/>
-        FROM menu
+        FROM sys_menu
     </select>
 
     <select id="findList" resultType="Menu">
         SELECT
         <include refid="defaultColumns"/>
-        FROM menu
+        FROM sys_menu
     </select>
 
     <insert id="save">
-        INSERT INTO menu(
+        INSERT INTO sys_menu(
 			id,
 			name,
 			url,
@@ -62,7 +62,7 @@
     </insert>
 
     <update id="update">
-        UPDATE menu SET
+        UPDATE sys_menu SET
 			name = #{name},
 			url = #{url},
 			sort = #{sort},
@@ -76,7 +76,7 @@
 
     <!--物理删除-->
     <update id="del">
-        DELETE FROM menu
+        DELETE FROM sys_menu
 		WHERE id = #{id}
     </update>
 </mapper>

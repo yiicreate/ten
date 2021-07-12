@@ -3,6 +3,7 @@ package com.bate.admin.service;
 import com.bate.admin.entity.User;
 import com.bate.admin.mapper.UserMapper;
 import com.bate.core.ext.CrudService;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.stereotype.Service;
 
 /**
@@ -25,9 +26,9 @@ public class UserService extends CrudService<User, UserMapper> {
      * @param passWord
      * @return
      */
-//    public String encodePass(String passWord){
-//        return new Sha256Hash(passWord,salt).toString();
-//    }
+    public String encodePass(String passWord){
+        return new Sha256Hash(passWord,salt).toString();
+    }
 
     /**
      * 对比密码
@@ -35,13 +36,13 @@ public class UserService extends CrudService<User, UserMapper> {
      * @param old 原加密的密码
      * @return
      */
-//    public boolean verify(String now,String old){
-//        String a = encodePass(now);
-//        if(old.equals(a)){
-//            return true;
-//        }
-//        return false;
-//    }
+    public boolean verify(String now,String old){
+        String a = encodePass(now);
+        if(old.equals(a)){
+            return true;
+        }
+        return false;
+    }
 
     public int updateTokenById(String token,String id){
         return  mapper.updateTokenById(token,id);
