@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bate.admin.mapper.UserMapper">
+    <sql id="userColumns">
+		id AS "id",
+		user_name AS "userName",
+		sex AS "sex"
+	</sql>
+
+    <select id="findAll" resultType="com.bate.admin.entity.User">
+        SELECT
+        <include refid="userColumns"/>
+        FROM user
+    </select>
+
+    <select id="findList" resultType="com.bate.admin.entity.User">
+        SELECT
+        <include refid="userColumns"/>
+        FROM user WHERE  id = #{id}
+    </select>
+
+    <select id="getByName" resultType="com.bate.admin.entity.User">
+        SELECT * FROM user WHERE  user_name = #{userName}
+    </select>
+
+    <select id="getByToken" resultType="com.bate.admin.entity.User">
+        SELECT * FROM user WHERE  token = #{token}
+    </select>
+
+    <insert id="save">
+        INSERT INTO user(
+			id,
+			user_name,
+			password,
+			token,
+			sex
+		) VALUES (
+			#{id},
+			#{userName},
+			#{password},
+			#{token},
+			#{sex}
+		)
+    </insert>
+
+    <!-- 更新用户密码 -->
+    <update id="updatePasswordById">
+		UPDATE sys_user SET
+			password = #{password}
+		WHERE id = #{id}
+	</update>
+
+    <!-- 更新用户token -->
+    <update id="updateTokenById">
+		UPDATE user SET
+			token = #{token}
+		WHERE id = #{id}
+	</update>
+</mapper>
