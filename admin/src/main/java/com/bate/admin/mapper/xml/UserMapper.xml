@@ -3,7 +3,7 @@
 <mapper namespace="com.bate.admin.mapper.UserMapper">
     <sql id="userColumns">
 		id AS "id",
-		user_name AS "userName",
+		username AS "userName",
 		sex AS "sex"
 	</sql>
 
@@ -20,7 +20,7 @@
     </select>
 
     <select id="getByName" resultType="com.bate.admin.entity.User">
-        SELECT * FROM sys_user WHERE  user_name = #{userName}
+        SELECT * FROM sys_user WHERE  username = #{userName}
     </select>
 
     <select id="getByToken" resultType="com.bate.admin.entity.User">
@@ -30,7 +30,7 @@
     <insert id="save">
         INSERT INTO sys_user(
 			id,
-			user_name,
+			username,
 			password,
 			token,
 			sex
