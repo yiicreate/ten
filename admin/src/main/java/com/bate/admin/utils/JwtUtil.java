@@ -19,16 +19,18 @@ import java.util.Date;
 
 
 public class JwtUtil {
-    public static final String KEY = "SWAWP";
+    public static final String KEY = "2GCMflmg0DUGw3mj";
     public static final String TOKEN = "token";
 
     public static String create(String name,String password){
-        Date date = new Date(System.currentTimeMillis()+ AppUtil.getBean(BaseConfig.class).getEXPIRE_TIME());
+        long a1 =  AppUtil.getBean(BaseConfig.class).getEXPIRE_TIME()*1000;
+        long b = System.currentTimeMillis();
+        Date date = new Date(a1+ b);
         Algorithm a =  Algorithm.HMAC256(KEY+password);
         String token = JWT.create()
                 .withExpiresAt(date)  //设置过期时间
                 .withClaim("name",name) //设置接受方信息，一般时登录用户
-                .sign(a);  //使用HMAC算法，111111作为密钥加密
+                .sign(a);  //使用HMAC算法
         return  token;
     }
 

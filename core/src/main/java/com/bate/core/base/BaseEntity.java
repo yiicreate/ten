@@ -50,4 +50,7 @@ public abstract class BaseEntity<T> implements Serializable {
     public Date getCreateTime() {
         return createTime;
     }
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

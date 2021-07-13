@@ -1,8 +1,8 @@
 package com.bate.admin.service;
 
 import com.bate.admin.entity.User;
+import com.bate.admin.ext.CrudService;
 import com.bate.admin.mapper.UserMapper;
-import com.bate.core.ext.CrudService;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +20,13 @@ public class UserService extends CrudService<User, UserMapper> {
     public User getByToken(String token){
         return mapper.getByToken(token);
     };
+
+    @Override
+    public int save(User t){
+        t.preInsert();
+        t.setPassword(encodePass(t.getPassword()));
+        return mapper.save(t);
+    }
 
     /**
      * 生成密码

@@ -4,6 +4,7 @@ import com.bate.admin.entity.User;
 import com.bate.admin.mapper.UserMapper;
 import com.bate.admin.service.UserService;
 import com.bate.admin.utils.JwtUtil;
+import com.bate.admin.utils.UserUtil;
 import com.bate.core.base.BaseController;
 import com.bate.core.vo.Page;
 import com.bate.core.vo.Result;
@@ -18,28 +19,45 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @RestController
-@RequestMapping(value = "/system")
+@RequestMapping(value = "/sys/user")
 public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/login")
-    public Result login(@RequestParam("userName") String userName,
-                        @RequestParam("passWord") String passWord){
-        User user = userService.getByName(userName);
+    /**
+     * 当前用户
+     * @return
+     */
+    @PostMapping("/self")
+    public Result self(){
         Result r = new Result();
-        if(user!=null&&userService.verify(passWord,user.getPassword())){
-            String token = JwtUtil.create(userName,user.getPassword());
-            userService.updateTokenById(token,user.getId());
-            r.setSuccess(true);
-            r.put("token",token);
-            return r;
-        }else {
-            r.setSuccess(false);
-            r.setMsg("用户名或密码错误");
-            return r;
-        }
+        r.setSuccess(true);
+        r.put("user", UserUtil.getCurrentUser());
+        return  r;
     }
+
+    /**
+     * 保存用户
+     * @param user
+     * @return
+     */
+    @PostMapping("/save")
+    public Result save(User user){
+        userService.save(user);
+        return Result.success();
+    }
+
+    /**
+     * 保存用户
+     * @param user
+     * @return
+     */
+    @PostMapping("/update")
+    public Result update(User user){
+        userService.update(user);
+        return Result.success();
+    }
+
 
     @GetMapping("/tt")
     public Page test(User user){

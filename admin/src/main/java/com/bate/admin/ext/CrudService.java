@@ -1,4 +1,4 @@
-package com.bate.core.ext;
+package com.bate.admin.ext;
 
 
 import com.bate.core.base.BaseMapper;
@@ -35,20 +35,12 @@ public abstract class CrudService<T extends DataEntity<T>,M extends BaseMapper<T
         return mapper.findList(entity);
     }
 
-    public T update(T t){
+    public int update(T t){
         return mapper.update(t);
     };
 
-    public T save(T t){
+    public int save(T t){
+        t.preInsert();
         return mapper.save(t);
     }
-
-    public T preInsert(T t){
-        if(!t.isAuto()){
-            t.setId(RandUtil.uuid());
-        }
-        t.setCreateTime(new Date());
-
-        return t;
-    };
 }

@@ -114,7 +114,7 @@ public class ShiroConf {
         Map<String, String> filterRuleMap = new LinkedHashMap<>();
 //        // 访问401和404页面不通过我们的Filter anon 可匿名访问
         filterRuleMap.put("/401", "anon");
-        filterRuleMap.put("/system/login", "anon");
+        filterRuleMap.put("/login", "anon");
         filterRuleMap.put("/image", "anon");
         filterRuleMap.put("/check", "anon");
         filterRuleMap.put("/test", "anon");

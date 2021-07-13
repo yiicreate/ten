@@ -2,9 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bate.admin.mapper.UserMapper">
     <sql id="userColumns">
-		id AS "id",
+		id,
 		username AS "userName",
-		sex AS "sex"
+		sex,
+		company_id AS "companyId",
+		department,
+		avatar,
+		realname,
+		id_code AS idCode,
+		mobile,
+		create_time AS createTime,
+		create_by AS createBy
 	</sql>
 
     <select id="findAll" resultType="com.bate.admin.entity.User">
@@ -24,8 +32,25 @@
     </select>
 
     <select id="getByToken" resultType="com.bate.admin.entity.User">
-        SELECT * FROM sys_user WHERE  token = #{token}
+        SELECT
+         <include refid="userColumns"/>
+         FROM sys_user WHERE  token = #{token}
     </select>
+
+	<update id="update">
+        UPDATE  sys_user SET
+        		username = #{userName},
+				sex = #{sex},
+				company_id = #{companyId},
+				department = #{department},
+				avatar = #{avatar},
+				realname = #{realname},
+				id_code = #{idCode},
+				mobile = #{mobile},
+				create_time = #{createTime},
+				create_by = #{createBy}
+		 WHERE id=#{id}
+    </update>
 
     <insert id="save">
         INSERT INTO sys_user(
@@ -33,13 +58,29 @@
 			username,
 			password,
 			token,
-			sex
+			sex,
+			company_id,
+			department,
+			avatar,
+			realname,
+			id_code,
+			mobile,
+			create_time,
+			create_by
 		) VALUES (
 			#{id},
 			#{userName},
 			#{password},
 			#{token},
-			#{sex}
+			#{sex},
+			#{companyId},
+			#{department},
+			#{avatar},
+			#{realname},
+			#{idCode},
+			#{mobile},
+			#{createTime},
+			#{createBy}
 		)
     </insert>
 

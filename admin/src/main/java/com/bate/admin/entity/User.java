@@ -1,6 +1,6 @@
 package com.bate.admin.entity;
 
-import com.bate.core.ext.DataEntity;
+import com.bate.admin.ext.DataEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,4 +22,22 @@ public class User extends DataEntity<User> {
     private String token;
 
     private int sex;
+
+    private String realname;
+
+    private String idCode;
+
+    private String mobile;
+
+    private String avatar;
+
+    private String companyId;
+
+    private String department;
+
+    public User(){
+    }
+    public User(String id){
+        super(id);
+    }
 }

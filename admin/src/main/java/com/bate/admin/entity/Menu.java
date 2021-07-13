@@ -1,6 +1,6 @@
 package com.bate.admin.entity;
 
-import com.bate.core.ext.DataEntity;
+import com.bate.admin.ext.DataEntity;
 import lombok.Getter;
 import lombok.Setter;
 

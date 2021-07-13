@@ -20,9 +20,9 @@ public interface BaseMapper<T> {
 
     public void del(String id);
 
-    public T update(T entity);
+    public int update(T entity);
 
-    public T save(T entity);
+    public int save(T entity);
 
     @Select("${sql}")
     public List<Map<String, Object>> execSelectSql(@Param(value = "sql") String sql);
