@@ -4,6 +4,7 @@ package com.bate.admin.ext;
 import com.bate.core.base.BaseMapper;
 import com.bate.core.base.BaseService;
 import com.bate.core.utils.RandUtil;
+import com.bate.core.vo.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
@@ -39,8 +40,21 @@ public abstract class CrudService<T extends DataEntity<T>,M extends BaseMapper<T
         return mapper.update(t);
     };
 
+
     public int save(T t){
         t.preInsert();
         return mapper.save(t);
+    }
+
+    /**
+     * 查询分页数据
+     * @param page 分页对象
+     * @param entity
+     * @return
+     */
+    public Page<T> findPage(Page<T> page, T entity) {
+        entity.setPage(page);
+        page.setList(mapper.findList(entity));
+        return page;
     }
 }

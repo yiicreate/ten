@@ -41,17 +41,17 @@
 		
 	</settings>
 	
-	<!-- 类型别名 -->
-<!--	<typeAliases>-->
-<!--		<typeAlias alias="Page" type="com.example.sixshiro.vo.Page" />&lt;!&ndash;分页  &ndash;&gt;-->
-<!--	</typeAliases>-->
+<!--	 类型别名-->
+	<typeAliases>
+		<typeAlias alias="Page" type="com.bate.core.vo.Page" /><!--分页  -->
+	</typeAliases>
 
 <!--	<typeHandlers>-->
 <!--	    <typeHandler handler="com.jeeplus.core.mapper.ConvertBlobTypeHandler"-->
 <!--	        javaType="java.lang.String" jdbcType="BLOB"/>-->
 <!--	</typeHandlers>-->
-<!--	&lt;!&ndash; 插件配置 &ndash;&gt;-->
-<!--	<plugins>-->
-<!--		<plugin interceptor="com.example.sixshiro.interceptor.SqlInterceptor" />-->
-<!--    </plugins>-->
+	<!-- 插件配置 -->
+	<plugins>
+		<plugin interceptor="com.bate.core.interceptor.SqlInterceptor" />
+    </plugins>
 </configuration>

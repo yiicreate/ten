@@ -24,8 +24,15 @@
     <select id="findList" resultType="com.bate.admin.entity.User">
         SELECT
         <include refid="userColumns"/>
-        FROM sys_user WHERE  id = #{id}
+        FROM sys_user
+
     </select>
+
+	<select id="get" resultType="com.bate.admin.entity.User">
+		SELECT
+		<include refid="userColumns"/>
+		FROM sys_user WHERE  id = #{id}
+	</select>
 
     <select id="getByName" resultType="com.bate.admin.entity.User">
         SELECT * FROM sys_user WHERE  username = #{userName}

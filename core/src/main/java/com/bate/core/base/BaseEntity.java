@@ -23,6 +23,11 @@ public abstract class BaseEntity<T> implements Serializable {
 
     protected Date createTime;
 
+    /**
+     * 自定义sql查询条件
+     */
+    protected String dataScope;
+
     protected boolean isAuto = false;
 
     public BaseEntity() {
@@ -35,7 +40,16 @@ public abstract class BaseEntity<T> implements Serializable {
 
     @JsonIgnore
     @XmlTransient
-    public Page getPage(){
+    public Page<T> getPage() {
+        if (page == null){
+            page = new Page<T>();
+        }
+        return page;
+    }
+
+
+    public Page<T> setPage(Page<T> page) {
+        this.page = page;
         return page;
     }
 

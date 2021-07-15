@@ -16,5 +16,5 @@ mybatis:
   type-aliases-package: com.bate
 baseConf:
   accessToken:
-    expireTime: 86400
+    expireTime: 864000
 

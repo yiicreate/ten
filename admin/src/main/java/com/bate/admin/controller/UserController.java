@@ -11,6 +11,9 @@ import com.bate.core.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 /**
  * @author: lh
@@ -28,7 +31,7 @@ public class UserController extends BaseController {
      * 当前用户
      * @return
      */
-    @PostMapping("/self")
+    @GetMapping("/self")
     public Result self(){
         Result r = new Result();
         r.setSuccess(true);
@@ -58,13 +61,18 @@ public class UserController extends BaseController {
         return Result.success();
     }
 
+    @PostMapping("/list")
+    public Result list(User user, HttpServletRequest request, HttpServletResponse response){
+        Page<User> page = new Page<>(request,response);
+        page = userService.findPage(page,user);
+        return Result.success().put("page",page);
+    }
 
-    @GetMapping("/tt")
-    public Page test(User user){
-        Page<User> page = new Page<>();
-        user.setPage(page);
-        user.setId("2");
-        page.setList(userService.findList(user));
-        return page;
+    @PostMapping("/one")
+    public Result one(User user){
+        Result r = Result.success();
+        User u = userService.get(user.getId());
+        r.put("data",u);
+        return r;
     }
 }
