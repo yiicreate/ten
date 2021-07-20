@@ -1,11 +1,9 @@
 package com.bate.admin.controller;
 
+import com.bate.admin.base.BaseController;
 import com.bate.admin.entity.User;
-import com.bate.admin.mapper.UserMapper;
 import com.bate.admin.service.UserService;
-import com.bate.admin.utils.JwtUtil;
 import com.bate.admin.utils.UserUtil;
-import com.bate.core.base.BaseController;
 import com.bate.core.vo.Page;
 import com.bate.core.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,9 +2,8 @@ package com.bate.admin.ext;
 
 import com.bate.admin.entity.User;
 import com.bate.admin.utils.UserUtil;
-import com.bate.core.base.BaseEntity;
+import com.bate.admin.base.BaseEntity;
 import com.bate.core.utils.RandUtil;
-import com.bate.core.utils.TimeUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Date;

@@ -1,7 +1,7 @@
 package com.bate.admin.mapper;
 
+import com.bate.admin.base.BaseMapper;
 import com.bate.admin.entity.Param;
-import com.bate.core.base.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

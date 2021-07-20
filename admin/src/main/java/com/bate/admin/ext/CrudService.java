@@ -1,8 +1,8 @@
 package com.bate.admin.ext;
 
 
-import com.bate.core.base.BaseMapper;
-import com.bate.core.base.BaseService;
+import com.bate.admin.base.BaseMapper;
+import com.bate.admin.base.BaseService;
 import com.bate.core.utils.RandUtil;
 import com.bate.core.vo.Page;
 import org.springframework.beans.factory.annotation.Autowired;
