@@ -1,6 +1,7 @@
 package com.bate.admin.base;
 
 import com.bate.core.vo.Page;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
@@ -21,6 +22,7 @@ public abstract class BaseEntity<T> implements Serializable {
 
     protected Page<T> page;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     protected Date createTime;
 
     /**

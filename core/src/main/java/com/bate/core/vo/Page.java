@@ -43,10 +43,16 @@ public class Page<T> implements Serializable {
     }
 
     public Page(HttpServletRequest request, HttpServletResponse response) {
-        // 设置页码参数（传递repage参数，来记住页码）
-        this.setPageNo(Integer.parseInt(request.getParameter("pageNo")));
-        // 设置页面大小参数（传递repage参数，来记住页码大小）
-        this.setPageSize(Integer.parseInt(request.getParameter("pageSize")));
+        if(StringUtils.isNotBlank(request.getParameter("pageNo"))){
+            // 设置页码参数（传递repage参数，来记住页码）
+            this.setPageNo(Integer.parseInt(request.getParameter("pageNo")));
+        }
+
+        if(StringUtils.isNotBlank(request.getParameter("pageSize"))){
+            // 设置页面大小参数（传递repage参数，来记住页码大小）
+            this.setPageSize(Integer.parseInt(request.getParameter("pageSize")));
+        }
+
         // 设置排序参数
         String orderBy = request.getParameter("orderBy");
         if (StringUtils.isNotBlank(orderBy)) {

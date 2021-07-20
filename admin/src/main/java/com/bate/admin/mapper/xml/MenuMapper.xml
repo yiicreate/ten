@@ -12,7 +12,7 @@
         target AS "target",
         pid AS "pid",
         create_time AS "createTime",
-        create_by AS "createBy",
+        create_by AS "createBy"
     </sql>
     <sql id="leftJoin">
     </sql>
