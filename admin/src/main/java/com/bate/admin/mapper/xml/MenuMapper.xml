@@ -8,10 +8,11 @@
         sort AS "sort",
         icon AS "icon",
         type AS "type",
-        is_use AS "is_use",
+        is_use AS "isUse",
         target AS "target",
         pid AS "pid",
-        create_time AS "create_time",
+        create_time AS "createTime",
+        create_by AS "createBy",
     </sql>
     <sql id="leftJoin">
     </sql>
@@ -46,7 +47,8 @@
 			is_use,
 			target,
 			pid,
-			create_time
+			create_time,
+			create_by
 		) VALUES (
 			#{id},
 			#{name},
@@ -57,7 +59,8 @@
 			#{isUse},
 			#{target},
 			#{pid},
-			#{createTime}
+			#{createTime},
+			#{createBy}
 		)
     </insert>
 

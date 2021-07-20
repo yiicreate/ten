@@ -23,7 +23,7 @@ public class Menu extends DataEntity<Menu>
 
     private Integer type;
 
-    private Integer is_use;
+    private Integer isUse;
 
     private Integer target;
 
