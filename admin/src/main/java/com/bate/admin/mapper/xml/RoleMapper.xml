@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bate.admin.mapper.RoleMapper">
+    <sql id="defaultColumns">
+        id AS "id",
+        name AS "name",
+        is_use AS "isUse",
+        rules AS "rules"
+    </sql>
+    <sql id="leftJoin">
+    </sql>
+
+    <select id="get" resultType="Role">
+        SELECT
+        <include refid="defaultColumns"/>
+        FROM
+        sys_role
+        WHERE id=#{id}
+    </select>
+
+    <select id="findAll" resultType="Role">
+        SELECT
+        <include refid="defaultColumns"/>
+        FROM
+        sys_role
+    </select>
+
+    <select id="findList" resultType="Role">
+        SELECT
+        <include refid="defaultColumns"/>
+        FROM
+        sys_role
+    </select>
+
+    <insert id="save">
+        INSERT INTO sys_role(
+			id,
+			name,
+			is_use,
+			rules
+		) VALUES (
+			#{id},
+			#{name},
+			#{isUse},
+			#{rules}
+		)
+    </insert>
+
+    <update id="update">
+        UPDATE  sys_role SET
+        		name = #{name},
+				is_use = #{isUse},
+				rules = #{rules}
+		 WHERE id=#{id}
+    </update>
+
+    <!--物理删除-->
+    <update id="delete">
+        DELETE FROM sys_role
+		WHERE id = #{id}
+    </update>
+</mapper>
