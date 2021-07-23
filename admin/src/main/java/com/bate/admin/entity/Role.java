@@ -17,4 +17,6 @@ public class Role extends DataEntity<Role> {
     private Integer isUse;
 
     private String rules;
+
+
 }

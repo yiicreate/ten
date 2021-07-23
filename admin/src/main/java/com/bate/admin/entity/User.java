@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * @author: lh
  * @date: 2021/3/29
@@ -34,6 +36,10 @@ public class User extends DataEntity<User> {
     private String companyId;
 
     private String department;
+
+    private List<Role> roles;
+
+    private List<Menu> menus;
 
     public User(){
     }

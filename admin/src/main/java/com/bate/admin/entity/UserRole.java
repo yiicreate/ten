@@ -14,4 +14,10 @@ import lombok.Setter;
 public class UserRole extends DataEntity<UserRole> {
     public String RoleId;
     public String UserId;
+
+    public UserRole(){
+    }
+    public UserRole(String id){
+        super(id);
+    }
 }
