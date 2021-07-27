@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bate.admin.mapper.DictionaryMapper">
+    <sql id="defaultColumns">
+	id AS "id",
+	code "code",
+	name AS "name",
+	type AS "type",
+	sort AS "sort",
+	is_use AS "isUse",
+	remark AS "remark"
+    </sql>
+    <sql id="leftJoin">
+    </sql>
+
+    <select id="get" resultType="Dictionary" >
+	SELECT
+	     <include refid="defaultColumns"/>
+	FROM
+        sys_dictionary
+	WHERE
+        id=#{id}
+   </select>
+
+    <select id="findAll" resultType="Dictionary">
+        SELECT
+        <include refid="defaultColumns"/>
+        FROM
+        sys_dictionary
+    </select>
+
+    <select id="findList" resultType="Dictionary">
+        SELECT
+        <include refid="defaultColumns"/>
+        FROM
+        sys_dictionary
+	WHERE   
+    </select>
+
+    <insert id="save">
+        INSERT INTO sys_dictionary(
+        id,
+        name,
+        type,
+        is_use,
+        sort,
+        remark,
+        create_time,
+        create_by
+        ) VALUES (
+        #{id},
+        #{name},
+        #{type},
+        #{isUse},
+        #{sort},
+        #{remark},
+        #{createTime},
+        #{createBy}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE sys_dictionary SET
+        name = #{name},
+        sort = #{sort},
+        type = #{type},
+        is_use = #{isUse},
+        remark = #{remark}
+        WHERE id = #{id}
+   </update>
+
+   <!--物理删除-->
+   <update id="delete">
+       DELETE FROM sys_dictionary
+       WHERE id = #{id}
+   </update>
+</mapper>
