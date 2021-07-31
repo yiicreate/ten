@@ -3,6 +3,7 @@ package com.bate.admin.utils;
 import com.bate.admin.entity.Menu;
 import com.bate.admin.entity.Role;
 import com.bate.admin.entity.User;
+import com.bate.admin.service.MenuService;
 import com.bate.admin.service.UserRoleService;
 import com.bate.admin.service.UserService;
 import com.bate.core.utils.AppUtil;
@@ -67,8 +68,18 @@ public class UserUtil {
             str.append(r.getRules().trim()+",");
         }
         String a =str.toString().substring(0,str.length()-1);
+        return AppUtil.getBean(MenuService.class).findMenuByIds(a);
+    }
 
-        return null;
+    /**
+     * 获取当前用户包含角色和菜单
+     * @return
+     */
+    public static User getSelf(){
+        User user  = getCurrentUser();
+        user.setRoles(AppUtil.getBean(UserRoleService.class).findByUser(user));
+        user.setMenus(getMenuList());
+        return user;
     }
 
 

@@ -90,6 +90,6 @@
         WHERE
         is_use = 1
         AND
-        id IN (ids)
+        id IN #{ids}
     </select>
 </mapper>
