@@ -37,6 +37,7 @@ public class User extends DataEntity<User> {
 
     private String department;
 
+
     private List<Role> roles;
 
     private List<Menu> menus;

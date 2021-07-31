@@ -18,7 +18,8 @@ public class UserService extends CrudService<User, UserMapper> {
     };
 
     public User getByToken(String token){
-        return mapper.getByToken(token);
+        User user = mapper.getByToken(token);
+        return  user;
     };
 
     @Override

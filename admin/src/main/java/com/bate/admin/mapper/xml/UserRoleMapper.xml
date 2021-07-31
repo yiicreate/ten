@@ -25,6 +25,15 @@
         sys_user_role
     </select>
 
+    <select id="findByUser" resultType="UserRole">
+        SELECT
+        <include refid="defaultColumns"/>
+        FROM
+        sys_user_role
+        where
+        user_id = #{userId}
+    </select>
+
     <select id="findList" resultType="UserRole">
         SELECT
         <include refid="defaultColumns"/>
@@ -56,4 +65,5 @@
         DELETE FROM sys_user_role
 		WHERE id = #{id}
     </update>
+
 </mapper>

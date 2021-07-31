@@ -34,6 +34,7 @@ public class UserController extends BaseController {
         Result r = new Result();
         r.setSuccess(true);
         r.put("user", UserUtil.getCurrentUser());
+        UserUtil.getMenuList();
         return  r;
     }
 

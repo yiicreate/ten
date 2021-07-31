@@ -82,4 +82,14 @@
         DELETE FROM sys_menu
 		WHERE id = #{id}
     </update>
+
+    <select id="findMenuByIds" resultType="com.bate.admin.entity.Menu">
+        SELECT
+        <include refid="defaultColumns"/>
+        FROM sys_menu
+        WHERE
+        is_use = 1
+        AND
+        id IN (ids)
+    </select>
 </mapper>
