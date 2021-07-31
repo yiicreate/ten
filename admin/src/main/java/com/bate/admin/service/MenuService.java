@@ -16,6 +16,7 @@ import java.util.List;
 public class MenuService extends CrudService<Menu, MenuMapper> {
 
     public List<Menu> findMenuByIds(String ids){
-        return mapper.findMenuByIds(ids);
+        List<Menu>menus = mapper.findMenuByIds(ids);
+        return menus;
     };
 }
