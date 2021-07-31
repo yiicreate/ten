@@ -27,14 +27,12 @@ public class MenuController extends BaseController {
 
     @PostMapping("/save")
     public Result save(Menu menu){
-        menuService.save(menu);
-        return Result.success();
+        return Result.success(menuService.save(menu));
     }
 
     @PostMapping("/update")
     public Result update(Menu user){
-        menuService.update(user);
-        return Result.success();
+        return Result.success(menuService.update(user));
     }
 
     @PostMapping("/list")

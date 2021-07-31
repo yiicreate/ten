@@ -44,8 +44,7 @@ public class UserController extends BaseController {
      */
     @PostMapping("/save")
     public Result save(User user){
-        userService.save(user);
-        return Result.success();
+        return Result.success( userService.save(user));
     }
 
     /**
@@ -55,8 +54,7 @@ public class UserController extends BaseController {
      */
     @PostMapping("/update")
     public Result update(User user){
-        userService.update(user);
-        return Result.success();
+        return Result.success(userService.update(user));
     }
 
     @PostMapping("/list")

@@ -23,6 +23,14 @@ public class Result extends HashMap<String,Object> implements Serializable {
         return  new Result();
     }
 
+    public static Result success(Integer bool){
+        if(bool == 0){
+            return  Result.error();
+        }else {
+            return Result.success();
+        }
+    }
+
     public static Result error(){
         Result r = new Result();
         r.setSuccess(false);

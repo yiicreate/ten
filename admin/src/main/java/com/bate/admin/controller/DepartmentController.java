@@ -1,8 +1,8 @@
 package com.bate.admin.controller;
 
 import com.bate.admin.base.BaseController;
-import com.bate.admin.entity.Dictionary;
-import com.bate.admin.service.DictionaryService;
+import com.bate.admin.entity.Department;
+import com.bate.admin.service.DepartmentService;
 import com.bate.core.vo.Page;
 import com.bate.core.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,36 +16,35 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author: lh
  * @date: 2021/7/31
- * 数据字典类
  */
 
 @RestController
-@RequestMapping("/sys/dic")
-public class DictionaryController extends BaseController {
+@RequestMapping("/sys/dept")
+public class DepartmentController extends BaseController {
     @Autowired
-    DictionaryService dictionaryService;
+    DepartmentService departmentService;
 
     @PostMapping("/save")
-    public Result save(Dictionary dictionary){
-        return Result.success(dictionaryService.save(dictionary));
+    public Result save(Department department){
+        return Result.success(departmentService.save(department));
     }
 
     @PostMapping("/update")
-    public Result update(Dictionary dictionary){
-        return Result.success(dictionaryService.update(dictionary));
+    public Result update(Department department){
+        return Result.success(departmentService.update(department));
     }
 
     @PostMapping("/list")
-    public Result list(Dictionary dictionary, HttpServletRequest request, HttpServletResponse response){
-        Page<Dictionary> page = new Page<>(request,response);
-        page = dictionaryService.findPage(page,dictionary);
+    public Result list(Department department, HttpServletRequest request, HttpServletResponse response){
+        Page<Department> page = new Page<>(request,response);
+        page = departmentService.findPage(page,department);
         return Result.success().put("page",page);
     }
 
     @PostMapping("/view")
-    public Result one(Dictionary dictionary){
+    public Result one(Department department){
         Result r = Result.success();
-        Dictionary u = dictionaryService.get(dictionary.getId());
+        Department u = departmentService.get(department.getId());
         r.put("data",u);
         return r;
     }

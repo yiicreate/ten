@@ -27,14 +27,12 @@ public class RoleController extends BaseController {
 
     @PostMapping("/save")
     public Result save(Role role){
-        roleService.save(role);
-        return Result.success();
+        return Result.success(roleService.save(role));
     }
 
     @PostMapping("/update")
     public Result update(Role role){
-        roleService.update(role);
-        return Result.success();
+        return Result.success(roleService.update(role));
     }
 
     @PostMapping("/list")
