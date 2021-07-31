@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 27/07/2021 10:59:35
+ Date: 31/07/2021 17:08:59
 */
 
 SET NAMES utf8mb4;
@@ -49,12 +49,18 @@ CREATE TABLE `sys_dictionary`  (
   `sort` int(255) NULL DEFAULT NULL COMMENT '排序',
   `is_use` tinyint(1) NULL DEFAULT NULL COMMENT '是否启用1启用，0未启用',
   `remark` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注说明',
+  `create_time` datetime NULL DEFAULT NULL,
+  `create_by` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_dictionary
 -- ----------------------------
+INSERT INTO `sys_dictionary` VALUES ('64f078fe050341f29177ad0e41eeb86e', '0', '女', 'sex', 2, 1, '性别', '2021-07-31 09:48:33', 'c5d4d1d3c50f4673875beec00b527ed2');
+INSERT INTO `sys_dictionary` VALUES ('663530114fa84c9ab01d44a74142b32a', '0', '否', 'bool', 1, 1, '是否', '2021-07-31 14:19:13', 'c5d4d1d3c50f4673875beec00b527ed2');
+INSERT INTO `sys_dictionary` VALUES ('71cef5673f88434d9620f6a1f4e41346', '1', '男', 'sex', 1, 1, '性别', '2021-07-31 09:47:56', 'c5d4d1d3c50f4673875beec00b527ed2');
+INSERT INTO `sys_dictionary` VALUES ('87b5aa8267b94937b78008f8fdcbdd1a', '1', '是', 'bool', 2, 1, '是否', '2021-07-31 14:19:22', 'c5d4d1d3c50f4673875beec00b527ed2');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -150,7 +156,7 @@ CREATE TABLE `sys_user`  (
 INSERT INTO `sys_user` VALUES ('1', 'admin', '9bcedfc16e4468552c8bb99900fff15362d60ca0bc471e5a008d89b27066b483', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiYWRtaW4iLCJleHAiOjE2MjcxOTkwNTV9.PwUGsj6fdW-DrP5-AbzB6IZAn_UMG1FlIALHdB4zm4s', 1, '1', '1', NULL, '超级管理员', '1223456', '123457', '2021-07-13 10:53:14', '1');
 INSERT INTO `sys_user` VALUES ('2', 'ss', '123', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `sys_user` VALUES ('3', 'dd', '124', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_user` VALUES ('c5d4d1d3c50f4673875beec00b527ed2', 'sckr', '9bcedfc16e4468552c8bb99900fff15362d60ca0bc471e5a008d89b27066b483', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoic2NrciIsImV4cCI6MTYyNzYwNzk2NX0.xndXxv3VEeiA4kvnbTMZIbqQ_doqiqYae_a775ffieQ', 0, '1', '1', NULL, '自己的2221', '123456789', '123456699', NULL, NULL);
+INSERT INTO `sys_user` VALUES ('c5d4d1d3c50f4673875beec00b527ed2', 'sckr', '9bcedfc16e4468552c8bb99900fff15362d60ca0bc471e5a008d89b27066b483', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoic2NrciIsImV4cCI6MTcxNDA5NTgyNX0.xlGZR_AufzfDxe4ozKTwUFpuqEDGITsqeeXdk_b0fmA', 0, '1', '1', NULL, '自己的2221', '123456789', '123456699', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -165,5 +171,6 @@ CREATE TABLE `sys_user_role`  (
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
+INSERT INTO `sys_user_role` VALUES ('1', 'c5d4d1d3c50f4673875beec00b527ed2', 'd3eff23ce8f04adda1ead5dc6459f332');
 
 SET FOREIGN_KEY_CHECKS = 1;
