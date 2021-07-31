@@ -34,12 +34,12 @@
         <include refid="defaultColumns"/>
         FROM
         sys_dictionary
-	WHERE   
     </select>
 
     <insert id="save">
         INSERT INTO sys_dictionary(
         id,
+        code,
         name,
         type,
         is_use,
@@ -49,6 +49,7 @@
         create_by
         ) VALUES (
         #{id},
+        #{code},
         #{name},
         #{type},
         #{isUse},

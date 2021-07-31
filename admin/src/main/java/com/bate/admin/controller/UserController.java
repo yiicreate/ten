@@ -66,7 +66,7 @@ public class UserController extends BaseController {
         return Result.success().put("page",page);
     }
 
-    @PostMapping("/one")
+    @PostMapping("/view")
     public Result one(User user){
         Result r = Result.success();
         User u = userService.get(user.getId());

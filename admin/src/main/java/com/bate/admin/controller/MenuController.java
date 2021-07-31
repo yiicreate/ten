@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author: lh
  * @date: 2021/7/19
+ * 菜单类
  */
 
 @RestController

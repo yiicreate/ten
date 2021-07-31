@@ -1,8 +1,7 @@
 package com.bate.admin.controller;
 
-import com.bate.admin.base.BaseController;
-import com.bate.admin.entity.Role;
-import com.bate.admin.service.RoleService;
+import com.bate.admin.entity.Dictionary;
+import com.bate.admin.service.DictionaryService;
 import com.bate.core.vo.Page;
 import com.bate.core.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,39 +14,39 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author: lh
- * @date: 2021/7/21
- * 角色
+ * @date: 2021/7/31
+ * 数据字典类
  */
 
 @RestController
-@RequestMapping(value = "/sys/role")
-public class RoleController extends BaseController {
+@RequestMapping("/sys/dic")
+public class DictionaryController {
     @Autowired
-    RoleService roleService;
+    DictionaryService dictionaryService;
 
     @PostMapping("/save")
-    public Result save(Role role){
-        roleService.save(role);
+    public Result save(Dictionary dictionary){
+        dictionaryService.save(dictionary);
         return Result.success();
     }
 
     @PostMapping("/update")
-    public Result update(Role role){
-        roleService.update(role);
+    public Result update(Dictionary dictionary){
+        dictionaryService.update(dictionary);
         return Result.success();
     }
 
     @PostMapping("/list")
-    public Result list(Role role, HttpServletRequest request, HttpServletResponse response){
-        Page<Role> page = new Page<>(request,response);
-        page = roleService.findPage(page,role);
+    public Result list(Dictionary dictionary, HttpServletRequest request, HttpServletResponse response){
+        Page<Dictionary> page = new Page<>(request,response);
+        page = dictionaryService.findPage(page,dictionary);
         return Result.success().put("page",page);
     }
 
     @PostMapping("/view")
-    public Result one(Role role){
+    public Result one(Dictionary dictionary){
         Result r = Result.success();
-        Role u = roleService.get(role.getId());
+        Dictionary u = dictionaryService.get(dictionary.getId());
         r.put("data",u);
         return r;
     }
