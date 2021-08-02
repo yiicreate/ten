@@ -64,7 +64,6 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
             try {
                return executeLogin(request, response);
             } catch (AuthenticationException e) {
-                System.out.println(e.getMessage());
                 GlobalController.error401(request, response);//登录超时，需要刷新token
             }catch (Exception e){
                 GlobalController.error401(request, response);//没有登录，需要登录

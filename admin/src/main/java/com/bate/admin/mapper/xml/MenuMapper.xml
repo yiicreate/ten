@@ -14,6 +14,7 @@
         create_time AS "createTime",
         create_by AS "createBy"
     </sql>
+
     <sql id="leftJoin">
     </sql>
 
@@ -83,13 +84,25 @@
 		WHERE id = #{id}
     </update>
 
-    <select id="findMenuByIds" resultType="com.bate.admin.entity.Menu">
+    <select id="findMenuByIds" resultType="Menu">
         SELECT
         <include refid="defaultColumns"/>
         FROM sys_menu
         WHERE
         is_use = 1
-        AND
-        id IN (#{ids})
+        AND type = 1
+        AND id IN
+        <foreach item="id" collection="ids" open="(" close= ")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    <select id="findMenuById" resultType="Menu">
+        SELECT
+        <include refid="defaultColumns"/>
+        FROM sys_menu
+        WHERE
+        is_use = 1
+        AND type = 2
+        AND pid = #{id}
     </select>
 </mapper>

@@ -68,7 +68,11 @@ public class UserUtil {
             str.append(r.getRules().trim()+",");
         }
         String a =str.toString().substring(0,str.length()-1);
-        return AppUtil.getBean(MenuService.class).findMenuByIds(a);
+        List<String> ids = new ArrayList<>();
+        for (String s:a.split(",")) {
+            ids.add(s);
+        }
+        return AppUtil.getBean(MenuService.class).findMenuByIds(ids);
     }
 
     /**

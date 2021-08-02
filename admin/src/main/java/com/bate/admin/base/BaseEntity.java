@@ -30,6 +30,7 @@ public abstract class BaseEntity<T> implements Serializable {
      */
     protected String dataScope;
 
+    @JsonIgnore
     protected boolean isAuto = false;
 
     public BaseEntity() {

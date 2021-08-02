@@ -15,5 +15,17 @@ import java.util.List;
 @Mapper
 @Repository
 public interface MenuMapper extends BaseMapper<Menu> {
-    public List<Menu> findMenuByIds(String ids);
+    /**
+     * 获取菜单根据ids
+     * @param ids
+     * @return
+     */
+    public List<Menu> findMenuByIds(List<String> ids);
+
+    /**
+     * 获取菜单下的按钮
+     * @param id
+     * @return
+     */
+    public List<Menu> findMenuById(String id);
 }
