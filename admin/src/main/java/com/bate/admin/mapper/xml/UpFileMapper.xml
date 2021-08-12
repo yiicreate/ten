@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bate.admin.mapper.UpFileMapper">
+    <sql id="defaultColumns">
+	id,
+	name,
+	path,
+	disk_path AS "diskPath",
+	type,
+	create_time AS "createTime",
+	create_by AS "createBy"
+    </sql>
+    <sql id="leftJoin">
+    </sql>
+
+    <select id="get" resultType="UpFile" >
+	SELECT
+	     <include refid="defaultColumns"/>
+	FROM  
+	WHERE 
+   </select>
+
+    <select id="findAll" resultType="UpFile">
+        SELECT
+        <include refid="defaultColumns"/>
+        FROM  
+    </select>
+
+    <select id="findList" resultType="UpFile">
+        SELECT
+        <include refid="defaultColumns"/>
+        FROM   
+	WHERE   
+    </select>
+
+    <insert id="save">
+        
+    </insert>
+
+    <update id="update">
+		
+   </update>
+
+   <!--物理删除-->
+   <update id="delete">
+		
+   </update>
+</mapper>

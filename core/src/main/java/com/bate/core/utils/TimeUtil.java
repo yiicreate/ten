@@ -1,5 +1,7 @@
 package com.bate.core.utils;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -37,6 +39,15 @@ public class TimeUtil  {
         Date date = new Date();
         SimpleDateFormat current = new SimpleDateFormat("yyyy-MM-dd");
         return current.format(date);
+    }
+
+    /**
+     * 获取日期格式
+     * @param format
+     * @return
+     */
+    public static String getDateSting(String format){
+        return DateFormatUtils.format(new Date(),format);
     }
 
 }
