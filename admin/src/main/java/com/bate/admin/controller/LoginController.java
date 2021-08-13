@@ -7,10 +7,7 @@ import com.bate.admin.utils.JwtUtil;
 import com.bate.admin.utils.KaptchaUtil;
 import com.bate.core.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,11 +19,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 @RestController
+@RequestMapping("/login")
 public class LoginController extends BaseController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/login")
+    @PostMapping("")
     public Result login(@RequestParam("userName") String userName,
                         @RequestParam("passWord") String passWord){
         User user = userService.getByName(userName);
