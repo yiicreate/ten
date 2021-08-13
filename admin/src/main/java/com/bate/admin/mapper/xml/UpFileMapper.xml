@@ -16,33 +16,65 @@
     <select id="get" resultType="UpFile" >
 	SELECT
 	     <include refid="defaultColumns"/>
-	FROM  
-	WHERE 
+	FROM
+        sys_up_file
+	WHERE
+        id=#{id}
    </select>
 
     <select id="findAll" resultType="UpFile">
         SELECT
         <include refid="defaultColumns"/>
-        FROM  
+        FROM
+        sys_up_file
     </select>
 
     <select id="findList" resultType="UpFile">
         SELECT
         <include refid="defaultColumns"/>
-        FROM   
+        FROM
+        sys_up_file
 	WHERE   
     </select>
 
     <insert id="save">
-        
+        INSERT INTO sys_up_file(
+        id,
+        name,
+        path,
+        disk_path,
+        content_type,
+        type,
+        size,
+        create_time,
+        create_by
+        ) VALUES (
+        #{id},
+        #{name},
+        #{path},
+        #{diskPath},
+        #{contentType},
+        #{type},
+        #{size},
+        #{createTime},
+        #{createBy}
+        )
     </insert>
 
     <update id="update">
-		
+        UPDATE sys_up_file SET
+        name = #{name},
+        path = #{path},
+        disk_path = #{diskPath},
+        content_type = #{contentType},
+        type = #{type},
+        size = #{size}
+        WHERE id = #{id}
    </update>
 
    <!--物理删除-->
    <update id="delete">
-		
+       DELETE FROM sys_up_file
+       WHERE id = #{id}
    </update>
 </mapper>

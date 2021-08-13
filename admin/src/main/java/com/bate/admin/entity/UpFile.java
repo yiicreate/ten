@@ -16,4 +16,6 @@ public class UpFile extends DataEntity<UpFile> {
     private String name;
     private String path;
     private String type;
+    private String contentType;
+    private double size;
 }
